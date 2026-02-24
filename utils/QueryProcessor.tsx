@@ -1,4 +1,6 @@
 export default function QueryProcessor(query: string): string {
+  const normalizedQuery = query.toLowerCase();
+
   if (query.toLowerCase().includes("shakespeare")) {
     return (
       "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -7,11 +9,19 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
-  if (query.toLowerCase().includes("name")) {
+  if (normalizedQuery.includes("my name is")) {
+    const name = query
+      .slice(normalizedQuery.indexOf("my name is") + "my name is".length)
+      .trim();
+
+    return name;
+  }
+
+  if (normalizedQuery.includes("name")) {
     return "Rohan";
   }
 
-  if (query.toLowerCase().includes("andrew id")) {
+  if (normalizedQuery.includes("andrew id")) {
     return "justinw5";
   }
 
