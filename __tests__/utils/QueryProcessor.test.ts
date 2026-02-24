@@ -17,7 +17,7 @@ describe("QueryProcessor", () => {
             "writer in the English language and the world's pre-eminent dramatist."
         ));
     });
-
+//test
     test('should return name', () => {
         const query = "What is your name?";
         const response: string = QueryProcessor(query);
